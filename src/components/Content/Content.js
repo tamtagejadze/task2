@@ -3,6 +3,7 @@ import './content.css';
 import { useRef } from 'react';
 import Div from './Div';
 
+
 const users =[
     {
     id:7,
@@ -60,7 +61,7 @@ function Content() {
                     ref = {divRef}>   
                     <h5>{element.first_name + " " + element.last_name }</h5>         
                     <img src={element.avatar}></img>
-                    <button className='btn' onClick={()=>(element.friend ? '' : alert('Friend request is sent'))}>Add Friend</button>
+                    <button className='btn'onClick={()=>(element.friend ? '' : alert('Friend request is sent'))}>Add Friend</button>
                 </Div>
             ))
         }

@@ -26,3 +26,23 @@ a {
     text-decoration: none;
 }
 
+.geo:after{
+    content: "მთავარი გვერდი";
+}
+.geo1:after{
+    content: "მეგობრების სია";
+}
+.geo2:after{
+    content: "პროფილი";
+}
+
+
+.eng:after{
+    content: "Home";
+}
+.eng1:after{
+    content: "Friend List";
+}
+.eng2:after{
+    content: "Profile";
+}

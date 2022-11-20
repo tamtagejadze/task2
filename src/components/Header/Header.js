@@ -4,27 +4,24 @@ import { useContext } from "react";
 import ChangeLanguage from './Changelanguage';
 
 
-// function changeToGeorgian() {
-
-// }
 function Header() {
   const selectedLanguage = useContext(ChangeLanguage); 
   return (
     <nav>
       <div className='left'>
         <li>
-          <a href="#">Home</a>
+          <a href="#" className={selectedLanguage.language}></a>
         </li>
         <li>
-          <a href="#">Friend List</a>
+          <a href="#" className={selectedLanguage.language + 1}></a>
         </li>
         <li>
-          <a href="#">Profile</a>
+          <a href="#" className={selectedLanguage.language + 2}></a>
         </li>
       </div>  
       <div className='right'>
-        <button >GEO</button>
-        <button >ENG</button>          
+        <button onClick={() => selectedLanguage.setLanguage ('geo')}>GEO</button>
+        <button onClick={() => selectedLanguage.setLanguage('eng')}>ENG</button>          
       </div> 
     </nav>
   )
