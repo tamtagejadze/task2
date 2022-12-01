@@ -1,5 +1,4 @@
 import React from 'react';
-import './header.css';
 import { useContext } from "react";
 import ChangeLanguage from './Changelanguage';
 

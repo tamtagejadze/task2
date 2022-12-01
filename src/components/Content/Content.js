@@ -1,7 +1,7 @@
 import React from 'react';
-import './content.css';
-import { useRef } from 'react';
 import Div from './Div';
+import { useRef, useState } from "react";
+import axios from 'axios';
 
 
 const users =[
@@ -50,8 +50,48 @@ const users =[
 ]
 
 function Content() {
-    const divRef = useRef()
+    const divRef = useRef();
+    const inputRef = useRef();
+    const [value, setValue] = useState('')
+    const [newusers, setnewusers] = useState(users)
+
+    
+    function add(e){
+        axios.post("https://reqres.in/api/users", 
+        {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+    .then(response => {console.log(response);})
+    .catch(error => {console.log(error);})
+
+        e.preventDefault();
+        const newUsers = [
+            ...newusers,
+            {
+                
+                    "name": "morpheus",
+                    "job": "leader"
+                
+
+            },
+        ]
+        setnewusers(newUsers)
+        setValue("")
+    }
+
     return (
+        <>
+        <form onSubmit={add}>
+            <input
+            className='input'
+            type="text" 
+            value={value} 
+            onChange={e => setValue(e.target.value)}
+            ref ={inputRef}        
+            />
+        </form>
     <div className='div'>
         {
             users.map(element =>(           
@@ -66,6 +106,7 @@ function Content() {
             ))
         }
     </div>
+    </>
   )
 }
 
